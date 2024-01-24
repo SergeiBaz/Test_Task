@@ -1,4 +1,4 @@
-package com.example.test_task.data
+package com.example.test_task.data.model
 
 data class News(
     val title: String?,

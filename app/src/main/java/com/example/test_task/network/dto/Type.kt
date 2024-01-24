@@ -1,4 +1,4 @@
-package com.example.test_task.network.remote.dto
+package com.example.test_task.network.dto
 
 import kotlinx.serialization.Serializable
 

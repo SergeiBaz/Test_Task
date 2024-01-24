@@ -1,4 +1,4 @@
-package com.example.test_task.network.remote
+package com.example.test_task.network
 
 object ConstantsNetwork {
     private const val BASE_URL = "https://api.bybit.com/v5/announcements/"
