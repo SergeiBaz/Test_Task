@@ -6,7 +6,6 @@ import io.ktor.client.call.body
 import io.ktor.client.request.*
 import javax.inject.Inject
 
-
 class NewsApiImpl @Inject constructor(private val client: HttpClient) : NewsApi {
     override suspend fun newsSearch(): GetResponse {
         return client.get(NewsApi.GET_URL).body()
