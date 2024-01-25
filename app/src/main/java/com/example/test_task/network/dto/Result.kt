@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Result(
-    val total: Int?,
-    val list: ArrayList<List?>,
+    val total: Int? = null,
+    val list: ArrayList<List?> = arrayListOf(),
 )

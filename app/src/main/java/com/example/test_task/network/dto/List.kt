@@ -4,13 +4,13 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class List(
-    val title: String?,
-    val description: String?,
-    val type: Type?,
-    val tags: ArrayList<String?>,
-    val url: String?,
-    val dateTimestamp: Long?,
-    val startDateTimestamp: Long?,
-    val endDateTimestamp: Long?
+    val title: String? = null,
+    val description: String? = null,
+    val type: Type? = Type(),
+    val tags: ArrayList<String>? = arrayListOf(),
+    val url: String? = null,
+    val dateTimestamp: Long? = null,
+    val startDateTimestamp: Long? = null,
+    val endDateTimestamp: Long? = null
 
 )

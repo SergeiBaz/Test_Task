@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Type(
-    val title: String?,
-    val key: String?
+    val title: String? = null,
+    val key: String? = null
 )

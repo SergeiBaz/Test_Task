@@ -5,5 +5,5 @@ data class News(
     val description: String?,
     val tags: ArrayList<String>?,
     val url: String?,
-    val time: String?
+    val time: Long?
 )
