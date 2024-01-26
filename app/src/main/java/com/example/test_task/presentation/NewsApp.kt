@@ -17,14 +17,15 @@ fun NewsApp(
     modifier: Modifier = Modifier,
     onNewClicked: (News) -> Unit
 ) {
-   val newsViewModel = hiltViewModel<NewsViewModel>()
+    val newsViewModel = hiltViewModel<NewsViewModel>()
     newsViewModel.getListNews()
     Scaffold(
         modifier = modifier.fillMaxSize(),
     ) {
-        Surface(modifier = modifier
-            .fillMaxSize()
-            .padding(it),
+        Surface(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(it),
             color = MaterialTheme.colors.background
         ) {
             HomeScreen(

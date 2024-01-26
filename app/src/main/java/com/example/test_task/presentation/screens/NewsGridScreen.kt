@@ -25,6 +25,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.test_task.data.model.News
+import com.example.test_task.presentation.CheckingForMissingData
+import java.text.SimpleDateFormat
+import java.util.Date
 
 @Composable
 fun NewsGridScreen(
@@ -37,7 +40,11 @@ fun NewsGridScreen(
         contentPadding = PaddingValues(4.dp)
     ) {
         itemsIndexed(news) { _, news ->
-            NewsCard(news = news, modifier = modifier, onNewClicked = onNewClicked)
+            NewsCard(
+                news = news,
+                modifier = modifier,
+                onNewClicked = onNewClicked,
+            )
         }
     }
 }
@@ -46,7 +53,7 @@ fun NewsGridScreen(
 fun NewsCard(
     news: News,
     modifier: Modifier,
-    onNewClicked: (News) -> Unit
+    onNewClicked: (News) -> Unit,
 ) {
     Card(
         modifier = modifier
@@ -56,68 +63,89 @@ fun NewsCard(
         shape = RoundedCornerShape(10.dp),
         elevation = 8.dp
     ) {
+
         Column(
             verticalArrangement = Arrangement.Top
         ) {
-            news.title?.let { title ->
+
+            Text(
+                text = CheckingForMissingData.isNullOrEmpty(news.title),
+                fontSize = 16.sp,
+                modifier = modifier
+                    .padding(
+                        start = 8.dp,
+                        top = 4.dp,
+                        end = 8.dp,
+                        bottom = 4.dp,
+                    ),
+                fontFamily = FontFamily.Serif,
+                fontWeight = FontWeight.Bold,
+                overflow = TextOverflow.Ellipsis,
+                softWrap = false
+            )
+
+            Card(
+                modifier = modifier
+                    .padding(start = 4.dp, bottom = 4.dp),
+                elevation = 8.dp
+            ) {
                 Text(
-                    text = title,
-                    fontSize = 16.sp,
+                    text = CheckingForMissingData.isNullOrEmpty(news.description),
+                    fontSize = 14.sp,
                     modifier = modifier
                         .padding(
                             start = 8.dp,
-                            top = 4.dp,
                             end = 8.dp,
                             bottom = 4.dp,
                         ),
                     fontFamily = FontFamily.Serif,
-                    fontWeight = FontWeight.Bold,
-                    overflow = TextOverflow.Ellipsis,
-                    softWrap = false
+                    softWrap = true,
                 )
             }
 
             Row {
                 news.time?.let { time ->
-                    news.convertLongToTime(time).let {
-                        Text(
-                            text = it,
-                            color = Color.Gray,
-                            textAlign = TextAlign.Center,
-                            fontSize = 14.sp,
-                            modifier = modifier
-                                .padding(
-                                    start = 8.dp,
-                                    top = 4.dp,
-                                    end = 8.dp,
-                                    bottom = 4.dp,
-                                ),
-                            fontFamily = FontFamily.Serif,
-                        )
-                        news.tags?.let { tags ->
-                            LazyRow {
-                                itemsIndexed(tags.toList()) { _, it ->
-                                    Card(
+                    Text(
+                        text = CheckingForMissingData
+                            .isNullOrEmpty(
+                                SimpleDateFormat("MMM dd, yyyy")
+                                    .format(Date(time))
+                            ),
+                        color = Color.Gray,
+                        textAlign = TextAlign.Center,
+                        fontSize = 14.sp,
+                        modifier = modifier
+                            .padding(
+                                start = 8.dp,
+                                top = 4.dp,
+                                end = 8.dp,
+                                bottom = 4.dp,
+                            ),
+                        fontFamily = FontFamily.Serif,
+                    )
+                    news.tags?.let { tags ->
+                        LazyRow {
+                            itemsIndexed(tags.toList()) { _, it ->
+                                Card(
+                                    modifier = modifier
+                                        .padding(start = 4.dp, bottom = 4.dp),
+                                    elevation = 8.dp
+                                ) {
+                                    Text(
+                                        text = CheckingForMissingData.isNullOrEmpty(it),
+                                        color = Color.Gray,
+                                        textAlign = TextAlign.Center,
+                                        fontSize = 14.sp,
                                         modifier = modifier
-                                            .padding(start = 4.dp, bottom = 4.dp),
-                                        elevation = 8.dp
-                                    ) {
-                                        Text(
-                                            text = it,
-                                            color = Color.Gray,
-                                            textAlign = TextAlign.Center,
-                                            fontSize = 14.sp,
-                                            modifier = modifier
-                                                .padding(
-                                                    start = 8.dp,
-                                                    top = 4.dp,
-                                                    end = 8.dp,
-                                                    bottom = 4.dp,
-                                                ),
-                                            fontFamily = FontFamily.Serif,
-                                            fontWeight = FontWeight.Light,
-                                        )
-                                    }
+                                            .padding(
+                                                start = 8.dp,
+                                                top = 4.dp,
+                                                end = 8.dp,
+                                                bottom = 4.dp,
+                                            ),
+                                        fontFamily = FontFamily.Serif,
+                                        fontWeight = FontWeight.Light,
+                                    )
                                 }
                             }
                         }

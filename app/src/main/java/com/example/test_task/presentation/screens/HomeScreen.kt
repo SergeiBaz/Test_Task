@@ -10,7 +10,7 @@ fun HomeScreen(
     newsUiState: NewsUiState,
     retryAction: () -> Unit,
     modifier: Modifier,
-    onNewClicked: (News) -> Unit
+    onNewClicked: (News) -> Unit,
 ) {
     when (newsUiState) {
         is NewsUiState.Loading -> LoadingScreen(modifier)
