@@ -2,9 +2,8 @@ package com.example.test_task.data.repository
 
 import com.example.test_task.data.model.News
 import com.example.test_task.network.NewsApi
-import javax.inject.Inject
 
-class NewsRepositoryImpl @Inject constructor(private val api: NewsApi) : NewsRepository {
+class NewsRepositoryImpl(private val api: NewsApi) : NewsRepository {
     override suspend fun getListNews(): List<News> = api.newsSearch().result.list.map { items ->
         News(
             title = items?.title,

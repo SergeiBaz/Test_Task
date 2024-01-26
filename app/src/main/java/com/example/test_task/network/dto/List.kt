@@ -12,5 +12,4 @@ data class List(
     val dateTimestamp: Long? = null,
     val startDateTimestamp: Long? = null,
     val endDateTimestamp: Long? = null
-
 )

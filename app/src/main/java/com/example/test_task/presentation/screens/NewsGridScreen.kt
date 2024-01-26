@@ -94,7 +94,6 @@ fun NewsCard(
                                 ),
                             fontFamily = FontFamily.Serif,
                         )
-
                         news.tags?.let { tags ->
                             LazyRow {
                                 itemsIndexed(tags.toList()) { _, it ->
