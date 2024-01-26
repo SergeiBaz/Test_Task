@@ -19,9 +19,9 @@
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ### Скриншоты
 
-![home screen Test_task]("https://github.com/SergeiBaz/Test_Task/blob/master/Screenshot_20240126_143932.png")
-![home horizontal screen Test_task]("https://github.com/SergeiBaz/Test_Task/blob/master/Screenshot_20240126_144013.png")
-![go to URL]("https://github.com/SergeiBaz/Test_Task/blob/master/Screenshot_20240126_144043.png")
+![home screen Test_task](https://github.com/SergeiBaz/Test_Task/blob/master/Screenshot_20240126_143932.png)
+![home horizontal screen Test_task](https://github.com/SergeiBaz/Test_Task/blob/master/Screenshot_20240126_144013.png)
+![go to URL](https://github.com/SergeiBaz/Test_Task/blob/master/Screenshot_20240126_144043.png)
 
 ### Архтитектура
 
